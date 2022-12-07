@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SuperMarket.Database.Models;
-using DemoApplication.Extensions;
-
+using SuperMarket.Extensions;
 
 namespace SuperMarket.Database
 {

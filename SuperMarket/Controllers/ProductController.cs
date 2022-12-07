@@ -1,47 +1,29 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 using SuperMarket.Database;
+using SuperMarket.Database.Models;
 using SuperMarket.ProductViewModels;
-using SuperMarket.Services.Abstracts;
 using System.Linq;
 
 namespace SuperMarket.Controllers
 {
-    [Route("Product")]
+    [Route("product")]
     public class ProductController : Controller
     {
         private readonly DataContext _dataContext;
-        //private readonly IEmailService _emailService;
-
-
-        public ProductController(DataContext dataContext/*, IEmailService emailService*/)
+        public ProductController(DataContext dataContext)
         {
             _dataContext = dataContext;
-            //_emailService = emailService;
         }
 
+        [HttpGet("list")]
+        public IActionResult List()
+        {
 
-        //[HttpGet("list", Name ="product-list")]
-        //public async Task <IActionResult> ListAsync()
-        //{
-        //    var model = await _dataContext.Products
-        //        .Select(p => new ProductListViewModel($"{p.Market.Name}", p.Id, p.Name, p.Price, p.CreatedAt))
-        //        .ToListAsync();
+            var model = _dataContext.MarketProducts.Select(mp => new ProductMarketViewModel(mp.MarketId, mp.ProductId, mp.Market, mp.Product)).ToList();
 
-        //    return View("~/Views/Product/List.cshtml" , model);
-        //}
-
-
-
-
-
-
-
-
-
-
-
-
-
+           return View(model);
+        }
     }
 }

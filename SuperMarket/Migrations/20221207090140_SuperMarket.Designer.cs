@@ -12,8 +12,8 @@ using SuperMarket.Database;
 namespace SuperMarket.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20221202154632_Product_m2m")]
-    partial class Productm2m
+    [Migration("20221207090140_SuperMarket")]
+    partial class SuperMarket
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
