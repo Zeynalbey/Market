@@ -1,6 +1,6 @@
 ﻿using SuperMarket.Database.Models;
 
-namespace SuperMarket.ProductViewModels
+namespace SuperMarket.Areas.Admin.ViewModels.MarketProducts
 {
     public class ProductMarketViewModel
     {
@@ -16,7 +16,6 @@ namespace SuperMarket.ProductViewModels
         public int ProductId { get; set; }
         public Market? Market { get; set; }
         public Product? Product { get; set; }
-
 
     }
 }

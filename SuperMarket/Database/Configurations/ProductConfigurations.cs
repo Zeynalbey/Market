@@ -10,7 +10,10 @@ namespace SuperMarket.Database.Configurations
         public void Configure(EntityTypeBuilder<Product> builder)
         {
             builder
-               .ToTable("Products");
+               .ToTable("Products")
+               .HasOne(p => p.Category)
+               .WithMany(c => c.Products)
+               .HasForeignKey(p => p.CategoryId);
         }
     }
 }

@@ -14,6 +14,7 @@ namespace SuperMarket.Database
 
         public DbSet<Market> Markets { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Categories { get; set; }
         public DbSet<MarketProduct> MarketProducts { get; set; }
 
 
