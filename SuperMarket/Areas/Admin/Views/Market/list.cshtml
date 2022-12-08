@@ -1,0 +1,36 @@
+﻿@using SuperMarket.Areas.Admin.ViewModels.Markets
+@model List<MarketOnlyListViewModel>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Supermarket Name</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+        @foreach (var supermarket in Model)
+        {
+            <tr>
+                <td>@supermarket.Name</td>
+
+                <td class="text-end">
+                    <form method="POST" asp-controller="market" asp-action="delete" asp-route-id="@supermarket.Id" id="supermarket-from-@supermarket.Id"></form>
+                    <button type="submit" form="supermarket-from-@supermarket.Id">
+                        <i class="las la-trash-alt text-secondary font-16"></i>
+                        Delete
+                    </button>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
